@@ -1,0 +1,12 @@
+backbone:
+  # keep default v11l backbone
+  # (leave as-is; we only change the head below)
+  - [from, number, module, args]  # placeholder; use default model’s backbone
+
+head:
+  - [from, number, module, args]  # placeholder; use default model’s head but with P2
+  # NOTE: If you’re on ultralytics>=8.3, simpler: use `--p2` flag at train time instead of a custom YAML.
+  
+anchors: auto  # let it learn anchors if using anchor-based; v11 is anchor-free by default
+nc: 2          # one class
+strides: [4, 8, 16, 32]  # ensure P2 is included (stride=4)

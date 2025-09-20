@@ -15,7 +15,7 @@ class CharacterDetection:
         
         label_path = './character_name.txt'
 
-        self.char_model, names_ = self.load_model('exp/weights/best.pt')
+        self.char_model, names_ = self.load_model('model/yolo/yolo11x.pt')
         self.names = [name.strip() for name in open(label_path).readlines()]
         self.size=128
 
@@ -86,7 +86,7 @@ class CharacterDetection:
             return thresh    
 
     def load_model(self,path, train = False):
-        model = Model(path, map_location='cuda')  # load FP32 model
+        model = Model(path)  # load FP32 model
         names = model.module.names if hasattr(model, 'module') else model.names  # get class names
         if train:
             model.train()

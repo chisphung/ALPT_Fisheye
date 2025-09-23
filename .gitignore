@@ -178,3 +178,4 @@ calibration_*.npy
 /dataset/images/
 /dataset/labels/
 /dataset/test
+output/

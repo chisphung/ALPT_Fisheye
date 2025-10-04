@@ -1,0 +1,12 @@
+nc: 2
+names: ['BSD', 'BSV']
+
+backbone:
+  - [-1, 1, VertexBackbone, [3, 128, True, [2, 3, 3]]]  # -> [P3,P4,P5]
+  - [0, 1, Index, [128, 0]]  # P3 stride 8
+  - [0, 1, Index, [128, 1]]  # P4 stride 16
+  - [0, 1, Index, [128, 2]]  # P5 stride 32
+
+head:
+  # OBB head requires nc (num classes), ne (extra params for rotation, default=1)
+  - [[1, 2, 3], 1, OBB, [nc, 1]]  # nc=2, ne=1 (rotation angle)

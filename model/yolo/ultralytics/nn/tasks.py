@@ -11,6 +11,8 @@ import torch
 import torch.nn as nn
 
 from ultralytics.nn.autobackend import check_class_names
+from .modules import *   # this is how parse_model() sees classes via globals()
+from .modules.vertexnet import VertexBackbone, Identity3  # optional but harmless
 from ultralytics.nn.modules import (
     AIFI,
     C1,
@@ -1684,6 +1686,10 @@ def parse_model(d, ch, verbose=True):
             c2 = args[0]
             c1 = ch[f]
             args = [*args[1:]]
+        elif m is VertexBackbone:
+            # VertexBackbone: args = [in_ch, width, se, n_blocks]
+            # It returns a list [P3, P4, P5] all with 'width' channels
+            c2 = args[1]  # width parameter
         else:
             c2 = ch[f]
 

@@ -1,5 +1,5 @@
 # Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
-
+from .modules.vertexnet import VertexBackbone, Identity3
 from .tasks import (
     BaseModel,
     ClassificationModel,
@@ -24,4 +24,6 @@ __all__ = (
     "SegmentationModel",
     "ClassificationModel",
     "BaseModel",
+    "VertexBackbone",
+    "Identity3",
 )

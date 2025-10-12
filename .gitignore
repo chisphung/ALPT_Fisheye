@@ -180,3 +180,4 @@ calibration_*.npy
 /dataset/test
 output/
 model/out
+dataset/VNPlateDetector.v2i.yolov8-obb

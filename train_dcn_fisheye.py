@@ -42,8 +42,6 @@ def main() -> None:
         imgsz=1024,
         device=0,
         deterministic=False,  # required: deterministic mode can segfault with DCNv2/DeformConv2d
-        batch=8,           # fixed: ~8 GB free VRAM; safe at imgsz=1024
-        workers=4,         # reduced to avoid multiprocessing segfaults
         optimizer="AdamW",
         lr0=0.005,
         lrf=0.05,
